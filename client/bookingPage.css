@@ -1,3 +1,28 @@
 .booking-page-container{
-    color: RED
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+
+}
+
+.booking-page-title{
+    margin-bottom: 50px;
+}
+
+.booking-page-form-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-input{
+    background-color: lightgrey;
+    border-radius: 5px;
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+    outline: 0;
+    border: none;
+    margin: 10px 0px;
 }

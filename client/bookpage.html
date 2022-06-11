@@ -7,6 +7,20 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="./bookingPage.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script>
+        $(function() {
+          $('input[name="daterange"]').daterangepicker({
+            opens: 'left'
+          }, function(start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+          });
+        });
+    </script>
 </head>
 <body>
     <div class="header-container">
@@ -20,7 +34,21 @@
         </div>
     </div>
     <div class="booking-page-container">
-        <h1>BOOK PAGE</h1>
+        <h1 class="booking-page-title">Book a hotel room</h1>
+
+        <div class="booking-page-form-container">
+            <input class="booking-input"type="text" placeholder="First name"/>
+            <input class="booking-input"type="text" placeholder="Last name"/>
+            <input class="booking-input"type="email" placeholder="email"/>
+
+            <select class="booking-input" name="rooms" id="rooms">
+                <option value="private">Private room</option>
+                <option value="double">Double room</option>
+                <option value="deluxe">Deluxe msheo masheo</option>
+                <option value="king">KING</option>
+            </select>
+            <input class="booking-input" type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+        </div>
     </div>
 </body>
 </html>

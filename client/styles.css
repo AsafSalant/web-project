@@ -1,0 +1,109 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+html,body{
+    height: 100%;
+    min-height: 100%;
+}
+
+.header-container{
+    display: flex;
+    height: 100px;
+    width: 100%;
+    border-bottom: 2px solid black;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.header-logo{
+    height: 100%;
+    width: auto;
+}
+
+.header-buttons-container{
+    margin-left: 200px;
+}
+
+.header-button{
+    padding: 10px 30px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.header-button:hover{
+    color: blue;
+}
+
+.homepage-big-image-container{
+    height: calc(100vh - 100px);
+    width: 100%;
+    background-image: url("https://ariane-hotel.com/wp-content/uploads/2021/12/Park-Hyatt-New-York-Manhattan-Sky-Suite-Master-Bedroom-low-res_54_990x660.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homepage-title{
+    font-size: 40px;
+    color: white;
+    margin-bottom: 100px;
+}
+
+.homepage-booknow-button{
+    padding: 20px 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3333ff;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0px 2px 4px rgba(black, 0.3);
+    cursor: pointer;
+}
+
+.homepage-booknow-button:hover{
+    background-color: #1d1d95;
+}
+
+
+.homepage-footer-container{
+    display: flex;    
+    height: 200px;
+    width: 100%;
+    background-color: white;
+    padding: 50px;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-right-side{
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo{
+    height: 100px;
+    width: auto;
+}
+
+.social-logos{
+    height: 30px;
+    width: 30px;
+    margin: 0px 10px;
+}

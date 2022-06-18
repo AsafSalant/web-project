@@ -1,8 +1,14 @@
 const { MongoClient } = require("mongodb");
 const { ObjectId } = require("mongodb");   
-
+const moment = require("moment");
 const uri = "mongodb+srv://asaf-salant:Sal85208520@web-project.bvep98x.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useUnifiedTopology: true});
+
+const convertStringToDate = (string) => {
+    const [day, month, year] = string.split('/');
+    return new Date(+year, month - 1, +day);
+};
+
 
 async function getAllBookings() {
     await client.connect();
@@ -31,13 +37,28 @@ async function findBookingByID(value) {
 async function postBooking(bookingOBJ) {
     await client.connect();
 
-    const postBooking = await client
+    // Convert 07/01/2022 string to DATE date type
+    const dateSplit = bookingOBJ.daterange.split(" ");
+    const startDateString = dateSplit[0];
+    const endDateString = dateSplit[dateSplit.length - 1];
+
+    const startDate = convertStringToDate(startDateString);
+    const endDate = convertStringToDate(endDateString);
+
+    delete bookingOBJ.daterange;
+    // end of convert to date type.
+    
+    bookingOBJ.startDate = startDate
+    bookingOBJ.endDate = endDate
+    bookingOBJ.createdDate = new Date();
+
+    const postBookingOBJ = await client
     .db("web-project").collection("bookings")
     .insertOne(bookingOBJ);
 
     await client.close();
 
-    return postBooking;
+    return postBookingOBJ;
 }
 
 async function deleteBookingByID(value) {
@@ -54,7 +75,7 @@ async function deleteBookingByID(value) {
 
 async function updateBookingBy(updateOBJ,id) {
     await client.connect();
-    console.log('updateOBJ',updateOBJ.key);
+
     const updateBooking = await client
     .db("web-project").collection("bookings")
     .updateOne({"_id": new ObjectId(id)},{$set: {[updateOBJ.key]:updateOBJ.value}});

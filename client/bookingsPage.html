@@ -15,10 +15,9 @@
         .then(res => res.json())
         .then(bookings => {
             const bookingsContainer = document.getElementById("bookings-container");
-
             bookings.forEach(booking => {
-                const {firstName, lastName,email,roomType} = booking;
-                const bookingCard = '<div class="booking-card"><div class="booking-image"></div> <div class="booking-details"><div class="booking-name">' +  firstName + ' '  + lastName + '</div><div class="booking-email">' + email + '</div><div class="booking-dates"> startDate + endDate </div><div class="booking-room-type">' + roomType + '</div></div> <div>'
+                const {firstName, lastName,email,roomType,startDate,endDate} = booking;
+                const bookingCard = '<div class="booking-card"><div class="booking-image"></div> <div class="booking-details"><div class="booking-name">' +  firstName + ' '  + lastName + '</div><div class="booking-email">' + email + '</div><div class="booking-dates">' + startDate + ' -  ' + endDate + '</div><div class="booking-room-type">' + roomType + '</div></div> <div>';
                 bookingsContainer.insertAdjacentHTML("afterbegin",bookingCard );
             });
         })

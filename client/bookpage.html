@@ -15,9 +15,12 @@
     <script>
         $(function() {
           $('input[name="daterange"]').daterangepicker({
-            opens: 'left'
+            opens: 'right'
           }, function(start, end, label) {
+            const startDate = start.toDate();
+            const endDate = end.toDate();
             console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            console.log(startDate);
           });
         });
     </script>
@@ -38,19 +41,29 @@
     <div class="booking-page-container">
         <h1 class="booking-page-title">Book a hotel room</h1>
 
-        <div class="booking-page-form-container">
-            <input class="booking-input"type="text" placeholder="First name"/>
-            <input class="booking-input"type="text" placeholder="Last name"/>
-            <input class="booking-input"type="email" placeholder="email"/>
+        <form 
+            class="booking-page-form-container" 
+            action="/booking"
+            method="post"
+        >
+            <input class="booking-input" type="text" placeholder="First name" name="firstName"/>
+            <input class="booking-input" type="text" placeholder="Last name" name="lastName"/>
+            <input class="booking-input" type="email" placeholder="email" name="email"/>
 
-            <select class="booking-input" name="rooms" id="rooms">
+            <select class="booking-input" name="roomType" id="rooms">
                 <option value="private">Private room</option>
                 <option value="double">Double room</option>
                 <option value="deluxe">Deluxe msheo masheo</option>
                 <option value="king">KING</option>
             </select>
-            <input class="booking-input" type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
-        </div>
+            <input 
+                class="booking-input" 
+                type="text" 
+                name="daterange" 
+                value="07/01/2022 - 07/07/2022" 
+            />
+            <input type="submit"/>
+        </form>
     </div>
 </body>
 </html>

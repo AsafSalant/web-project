@@ -1,0 +1,57 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#bookings-container{
+    width: 100%;
+
+}
+
+.booking-card{
+    display: flex;
+    width: 500px;
+    height: 130px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, .15);
+    border-radius: 10px;
+    border: 2px solid lightgrey;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.booking-card:hover{
+    border: 2px solid black;
+}
+
+.booking-image{
+    width: 30%;
+    height: 100%;
+    background-color: red;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.booking-details{
+    padding: 15px;
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    border-radius: 0px 10px 10px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-email{
+    font-size: 14px;
+    color: gray;
+}
+
+.booking-dates{
+    margin-top: auto;
+}
+
+.booking-room-type{
+    font-size: 20px;
+    font-weight: bold;
+}

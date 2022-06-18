@@ -15,7 +15,7 @@ app.post("/booking",(req,res) => {
 });
 
 app.get("/booking/:name", async (req,res) => {
-    const bookingDoc = await bookingsService.findBookingByName(req.params.name);
+    const bookingDoc = await bookingsService.findBookingBy("name",req.params.name);
     res.send(bookingDoc)
 });
 

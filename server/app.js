@@ -20,8 +20,13 @@ app.post("/login", async(req,res) => {
     res.send(user)
 });
 
-app.get("/bookings/:name", async (req,res) => {
-    const bookingDoc = await bookingsService.findBookingByID(req.params.name);
+app.post("/create-user", async(req,res) => {
+    const user = await usersService.createUser(req.body);
+    res.send(user)
+});
+
+app.post("/find-booking", async (req,res) => {
+    const bookingDoc = await bookingsService.findBookingByEmail(req.body);
     res.send(bookingDoc)
 });
 

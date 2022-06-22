@@ -45,6 +45,7 @@
             class="booking-page-form-container" 
             action="/bookings"
             method="post"
+            id="post-booking-form"
         >
             <input class="booking-input" type="text" placeholder="First name" name="firstName"/>
             <input class="booking-input" type="text" placeholder="Last name" name="lastName"/>
@@ -65,5 +66,21 @@
             <input class="booking-input" type="submit" id="submit-button"/>
         </form>
     </div>
+
+    <script>
+        document.forms["post-booking-form"].addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const resp = await fetch(event.target.action, {
+                method: "POST",
+                body: new URLSearchParams(new FormData(event.target)),
+            });
+            const body = await resp.json();
+            let p = document.createElement("p")
+            p.innerText = body.insertedId;
+            console.log(p);
+            const s = document.getElementsByClassName("booking-page-container")[0]
+            s.append(p)
+        });     
+    </script>
 </body>
 </html>

@@ -22,12 +22,13 @@ async function getAllBookings() {
     return findAllBookings;
 }
 
-async function findBookingByID(value) {
+async function findBookingByEmail(bookingOBJ) {
     await client.connect();
 
     const findBooking = await client
     .db("web-project").collection("bookings")
-    .findOne({"_id": new ObjectId(value)});
+    .findOne({email: bookingOBJ.email});
+    // .findOne({"_id": new ObjectId(value)});
 
     await client.close();
 
@@ -86,7 +87,7 @@ async function updateBookingBy(updateOBJ,id) {
 }
 
 module.exports = {
-    findBookingByID,
+    findBookingByEmail,
     postBooking,
     deleteBookingByID,
     getAllBookings,

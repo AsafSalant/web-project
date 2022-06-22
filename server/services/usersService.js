@@ -23,6 +23,23 @@ async function login(userOBJ) {
     return findUser
 } 
 
+async function createUser(userOBJ) {
+    await client.connect();
+
+    if (userOBJ?.admin) {
+        userOBJ.admin = true;
+    } else{
+        userOBJ.admin = false;
+    }
+
+    const newUser = await client
+    .db("web-project").collection("users")
+    .insertOne(userOBJ);
+
+    await client.close();
+    return newUser
+} 
+
 module.exports = {
-    login
+    login,createUser
 }

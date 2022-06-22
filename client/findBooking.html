@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./bookingPage.css">
+    <link rel="stylesheet" href="./createUser.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+</head>
+<body>
+    <div class="header-container">
+        <a href="./index.html">
+            <img class="header-logo" src="https://assets.materialup.com/uploads/871d6eec-49d7-4917-85df-217d0ff5e15c/preview.jpg" alt="">
+        </a>
+
+        <div class="header-buttons-container">
+            <a class="header-button" href="./index.html">HOME</a>
+            <a class="header-button" href="./bookpage.html">BOOK</a>
+            <a class="header-button" href="">APPOINTMENT</a>
+            <a class="header-button" href="">HELP</a>
+        </div>
+    </div>
+    <div class="booking-page-container">
+        <h1 class="booking-page-title">Find booking by email</h1>
+
+        <form 
+            class="create-user-container"
+            method="post"
+            action="/find-booking"
+        >
+            <input 
+                class="booking-input" 
+                type="text" 
+                placeholder="Email" 
+                name="email"
+            />
+            <input 
+                class="booking-input" 
+                id="submit-button"
+                type="submit" 
+            />  
+        </form>
+    </div>
+</body>
+</html>

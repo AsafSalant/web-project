@@ -17,12 +17,7 @@ app.post("/bookings",async (req,res) => {
 
 app.post("/login", async(req,res) => {
     const user = await usersService.login(req.body);
-
-    if (user === null) {
-        return res.send("No user found");
-    } 
-
-    res.send("Yufi tofi");
+    res.send(user)
 });
 
 app.get("/bookings/:name", async (req,res) => {

@@ -11,12 +11,16 @@ async function login(userOBJ) {
     const findUser = await client
     .db("web-project").collection("users")
     .findOne({username: userOBJ.username});
-    
-    if (findUser === null) return null;
 
 
     await client.close();
-    return findUser;
+
+    if (findUser === null) return "No user found";
+    if(findUser.password !== userOBJ.password) {
+        return "Wrong password";
+    } 
+
+    return findUser
 } 
 
 module.exports = {

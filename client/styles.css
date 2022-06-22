@@ -48,7 +48,7 @@ html,body{
 
 .homepage-big-image-container{
     height: calc(100vh - 100px);
-    width: 100%;
+    width: 50%;
     background-image: url("https://ariane-hotel.com/wp-content/uploads/2021/12/Park-Hyatt-New-York-Manhattan-Sky-Suite-Master-Bedroom-low-res_54_990x660.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -122,4 +122,28 @@ input,select{
 
 input:focus,select:focus{
     border: 2px solid black;
+}
+
+
+.homepage-container{
+    display: flex;
+    width: 100%;
+}
+
+
+.login-container{
+    padding: 200px 17%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.login-title{
+    margin-bottom: 30px;
+}
+
+.login-container>.booking-input{
+    margin-bottom: 15px;
+    width: 100%;
 }

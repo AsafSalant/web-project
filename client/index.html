@@ -9,9 +9,7 @@
 </head>
 <body>
     <div class="header-container">
-        <a href="./index.html">
-            <img class="header-logo" src="https://assets.materialup.com/uploads/871d6eec-49d7-4917-85df-217d0ff5e15c/preview.jpg" alt="">
-        </a>
+        <img class="header-logo" src="https://assets.materialup.com/uploads/871d6eec-49d7-4917-85df-217d0ff5e15c/preview.jpg" alt="">
 
         <div class="header-buttons-container">
             <a class="header-button" href="./index.html">HOME</a>
@@ -21,15 +19,39 @@
         </div>
     </div>
 
-    <div class="homepage-big-image-container">
-        <h1 class="homepage-title">WEB PROJECT HOTEL</h1>
-        <a href="./bookpage.html" class="homepage-booknow-button">BOOK NOW</a>
+    <div class="homepage-container">
+        <form 
+            class="login-container"
+            method="post"
+            action="/login"
+        >
+            <h1 class="login-title">Login</h1>
+            <input 
+                class="booking-input" 
+                type="text" 
+                placeholder="Username" 
+                name="username"
+            />
+            <input 
+                class="booking-input" 
+                type="password" 
+                placeholder="Password" 
+                name="password"
+            />
+            <input 
+                class="booking-input" 
+                id="submit-button"
+                type="submit" 
+            />
+        </form>
+        <div class="homepage-big-image-container">
+            <h1 class="homepage-title">WEB PROJECT HOTEL</h1>
+            <a href="./bookpage.html" class="homepage-booknow-button">BOOK NOW</a>
+        </div>
     </div>
 
-    <footer id="footer" class="homepage-footer-container">
-        <a class="header-button" href="./index.html">
-            <img class="footer-logo" src="https://assets.materialup.com/uploads/871d6eec-49d7-4917-85df-217d0ff5e15c/preview.jpg" alt="">
-        </a>
+    <footer class="homepage-footer-container">
+        <img class="footer-logo" src="https://assets.materialup.com/uploads/871d6eec-49d7-4917-85df-217d0ff5e15c/preview.jpg" alt="">
 
         <div class="footer-right-side">
             <img class="social-logos" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png" alt="">

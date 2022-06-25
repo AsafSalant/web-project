@@ -17,7 +17,7 @@ app.post("/bookings",async (req,res) => {
 
 app.post("/login", async(req,res) => {
     const user = await usersService.login(req.body);
-    res.send(user)
+    res.send({user})
 });
 
 app.post("/create-user", async(req,res) => {

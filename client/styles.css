@@ -147,3 +147,13 @@ input:focus,select:focus{
     margin-bottom: 15px;
     width: 100%;
 }
+
+#submit-button{
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#submit-button:hover{
+    border-color: black;
+}

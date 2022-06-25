@@ -26,6 +26,7 @@
             class="login-container"
             method="post"
             action="/login"
+            id="login-form"
         >
             <h1 class="login-title">Login</h1>
             <input 
@@ -61,5 +62,22 @@
             <p>050-3494928294</p>
         </div>
     </footer>
+
+
+    <script>
+        document.forms["login-form"].addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const resp = await fetch(event.target.action, {
+                method: "POST",
+                body: new URLSearchParams(new FormData(event.target)),
+            });
+            const body = await resp.json();
+            console.log(body);
+            let p = document.createElement("p");
+            p.innerText = body?.user?._id || body?.user;
+            const loginContainer = document.getElementsByClassName("login-container")[0];
+            loginContainer.append(p);
+        });     
+    </script>
 </body>
 </html>

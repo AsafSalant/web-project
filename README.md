@@ -7,5 +7,5 @@
  
 
 1. Home page with details
-2. Book page - book an appointment
-3. List of appointment with CRUD on each appointment. 
+2. Book page - book an SHOW ALL BOOKINGS
+3. List of SHOW ALL BOOKINGS with CRUD on each SHOW ALL BOOKINGS. 

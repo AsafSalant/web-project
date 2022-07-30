@@ -13,14 +13,14 @@
 </head>
 <body>
     <div class="header-container">
-        <a href="./index.html">
-            <img class="header-logo" src="https://assets.materialup.com/uploads/871d6eec-49d7-4917-85df-217d0ff5e15c/preview.jpg" alt="">
-        </a>
+        <img class="header-logo" src="https://assets.materialup.com/uploads/871d6eec-49d7-4917-85df-217d0ff5e15c/preview.jpg" alt="">
 
         <div class="header-buttons-container">
             <a class="header-button" href="./index.html">HOME</a>
+            <a class="header-button" href="./createUser.html">CREATE USER</a>
             <a class="header-button" href="./bookpage.html">BOOK</a>
-            <a class="header-button" href="">APPOINTMENT</a>
+            <a class="header-button" href="./bookingsPage.html">APPOINTMENT</a>
+            <a class="header-button" href="./findBooking.html">FIND BOOKING</a>
             <a class="header-button" href="">HELP</a>
         </div>
     </div>
@@ -31,6 +31,7 @@
             class="create-user-container"
             method="post"
             action="/create-user"
+            id="create-user-form"
         >
             <input 
                 class="booking-input" 
@@ -59,5 +60,21 @@
             />  
         </form>
     </div>
+
+
+    <script>
+        document.forms["create-user-form"].addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const resp = await fetch(event.target.action, {
+                method: "POST",
+                body: new URLSearchParams(new FormData(event.target)),
+            });
+            const body = await resp.json();
+            let p = document.createElement("p")
+            p.innerText = `New user created - ${body.insertedId}`;
+            const responseText = document.getElementById("create-user-form")
+            responseText.append(p)
+        });     
+    </script>
 </body>
 </html>

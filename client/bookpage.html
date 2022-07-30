@@ -27,14 +27,14 @@
 </head>
 <body>
     <div class="header-container">
-        <a href="./index.html">
-            <img class="header-logo" src="https://assets.materialup.com/uploads/871d6eec-49d7-4917-85df-217d0ff5e15c/preview.jpg" alt="">
-        </a>
+        <img class="header-logo" src="https://assets.materialup.com/uploads/871d6eec-49d7-4917-85df-217d0ff5e15c/preview.jpg" alt="">
 
         <div class="header-buttons-container">
             <a class="header-button" href="./index.html">HOME</a>
+            <a class="header-button" href="./createUser.html">CREATE USER</a>
             <a class="header-button" href="./bookpage.html">BOOK</a>
-            <a class="header-button" href="">APPOINTMENT</a>
+            <a class="header-button" href="./bookingsPage.html">APPOINTMENT</a>
+            <a class="header-button" href="./findBooking.html">FIND BOOKING</a>
             <a class="header-button" href="">HELP</a>
         </div>
     </div>
@@ -74,10 +74,10 @@
                 method: "POST",
                 body: new URLSearchParams(new FormData(event.target)),
             });
+
             const body = await resp.json();
             let p = document.createElement("p")
-            p.innerText = body.insertedId;
-            console.log(p);
+            p.innerText = `New booking created - ${body.insertedId}`;
             const s = document.getElementsByClassName("booking-page-container")[0]
             s.append(p)
         });     

@@ -32,6 +32,8 @@ async function createUser(userOBJ) {
         userOBJ.admin = false;
     }
 
+    userOBJ.dateJoined = new Date();
+
     const newUser = await client
     .db("web-project").collection("users")
     .insertOne(userOBJ);

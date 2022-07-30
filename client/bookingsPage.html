@@ -5,22 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="bookingsPage.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./bookingPage.css">
+    <link rel="stylesheet" href="./bookingSPage.css">
 </head>
 <body id="bookings-container">
-    
+    <div class="header-container">
+        <img class="header-logo" src="https://assets.materialup.com/uploads/871d6eec-49d7-4917-85df-217d0ff5e15c/preview.jpg" alt="">
+
+        <div class="header-buttons-container">
+            <a class="header-button" href="./index.html">HOME</a>
+            <a class="header-button" href="./createUser.html">CREATE USER</a>
+            <a class="header-button" href="./bookpage.html">BOOK</a>
+            <a class="header-button" href="./bookingsPage.html">APPOINTMENT</a>
+            <a class="header-button" href="./findBooking.html">FIND BOOKING</a>
+            <a class="header-button" href="">HELP</a>
+        </div>
+    </div>
 
     <script>
+
+        const privatePic = "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80"
+        const kingPic = "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+        const deluxePice = "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=749&q=80"
+
         fetch('/bookings')
         .then(res => res.json())
         .then(bookings => {
             const bookingsContainer = document.getElementById("bookings-container");
-            bookings.forEach(booking => {
-                const {firstName, lastName,email,roomType,startDate,endDate} = booking;
-                const bookingCard = '<div class="booking-card"><div class="booking-image"></div> <div class="booking-details"><div class="booking-name">' +  firstName + ' '  + lastName + '</div><div class="booking-email">' + email + '</div><div class="booking-dates">' + startDate + ' -  ' + endDate + '</div><div class="booking-room-type">' + roomType + '</div></div> <div>';
-                bookingsContainer.insertAdjacentHTML("afterbegin",bookingCard );
+            bookings.forEach((bookingCard,index) => {
+                const {firstName, lastName,email,roomType,startDate,endDate} = bookingCard;
+                const startDateSting = new Date(startDate).toDateString();
+                const endDateSting = new Date(endDate).toDateString();
+
+                let bookingCardDOM = '<div class="booking-card"><div class="booking-image"></div> <div class="booking-details"><div class="booking-name">' +  firstName + ' '  + lastName + '</div><div class="booking-email">' + email + '</div><div class="booking-dates">' + startDateSting + ' -  ' + endDateSting + '</div><div class="booking-room-type">' + roomType + '</div></div> <div>';
+                bookingsContainer.insertAdjacentHTML("beforeend",bookingCardDOM );
+
+                const thisBookingImage = document.getElementsByClassName("booking-image")[index];
+                if (bookingCard.roomType === "king") thisBookingImage.style.backgroundImage = `url(${kingPic})`;
+                if (bookingCard.roomType === "deluxe") thisBookingImage.style.backgroundImage = `url(${deluxePice})`;
+                if (["private","double"].includes(bookingCard.roomType)) thisBookingImage.style.backgroundImage = `url(${privatePic})`;
             });
         })
+
+        
+        
     </script>
 </body>
 </html>

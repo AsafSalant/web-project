@@ -7,7 +7,6 @@
 
 #bookings-container{
     width: 100%;
-
 }
 
 .booking-card{
@@ -19,6 +18,7 @@
     border: 2px solid lightgrey;
     margin-bottom: 20px;
     cursor: pointer;
+    margin: 40px auto 0px auto;
 }
 
 .booking-card:hover{
@@ -28,8 +28,9 @@
 .booking-image{
     width: 30%;
     height: 100%;
-    background-color: red;
     border-radius: 10px 0px 0px 10px;
+    background-size: cover;
+    background-position: center;
 }
 
 .booking-details{
